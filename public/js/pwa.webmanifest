@@ -1,0 +1,16 @@
+{
+  "name": "Stride Connect",
+  "short_name": "Stride Connect",
+  "description": "Progressive Web App for Stride Connect",
+  "icons": [
+    {
+      "src": "/../images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "fullscreen",
+  "theme_color": "#111827",
+  "background_color": "#111827"
+}
