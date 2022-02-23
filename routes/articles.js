@@ -2,7 +2,6 @@ const router = require('express').Router();
 const Article = require('../models/Article');
 const User = require('../models/User')
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
-const { markdownToTxt } = require('markdown-to-txt');
 const { htmlToText } = require('html-to-text');
 var { Remarkable } = require('remarkable');
 
