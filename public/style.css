@@ -42,6 +42,12 @@ pre {
         sans-serif;
 }
 
+.add-button {
+    position: absolute;
+    bottom: 4rem;
+    left: 5.5rem;
+}
+
 @media only screen and (max-width: 600px) {
     .login-container {
         width: 90%;
