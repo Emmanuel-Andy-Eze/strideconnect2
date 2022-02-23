@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
     const newArticle = new Article(req.body);
     try {
         const savedArticle = await newArticle.save();
-        res.status(200).render('articles');
+        res.status(200).redirect('/articles');
     } catch (err) {
         res.status(500).json(err);
     }

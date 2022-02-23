@@ -2,6 +2,7 @@ const router = require('express').Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const Article = require('../models/Article')
+const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
 //Update User
 router.put('/:id', async(req, res) => {
@@ -105,7 +106,7 @@ router.post('/:id/unfollow', async(req, res) => {
 })
 
 // Get Users
-router.route('/').get((req, res) => {
+router.route('/').get(ensureAuth, (req, res) => {
     User.find((error, response) => {
         if (error) {
             return next(error)
