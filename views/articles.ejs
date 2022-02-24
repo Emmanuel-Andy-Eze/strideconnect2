@@ -110,7 +110,7 @@
             <p class="mb-0 text-gray-700 dark:text-gray-400" style="font-size: .8rem;"><%= timelineArticle.desc %>.</p>
           </div>
           <div class="article-img" style="padding: 0 .6rem 0 .6rem;">
-            <img src="https://uploads.sitepoint.com/wp-content/uploads/2017/04/1493235373large_react_apps_A-01.png" alt="">
+            <img src="https://images.pexels.com/photos/325153/pexels-photo-325153.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
           </div>
           <div class="post-details">
             <ul class="dark:text-white" style="display: flex; width: 80%; justify-content: space-between; margin: .5rem auto; font-size: .8rem;">
@@ -164,36 +164,22 @@
     </div>
     </div>
   </nav>
-  <button class="add-button py-2 px-3 text-xs font-small text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900">Install Stride Connect</button>
+  <!-- <button class="add-button py-2 px-3 text-xs font-small text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900">Install Stride Connect</button> -->
   
     
 <script>
-  let deferredPrompt;
-  const addBtn = document.querySelector('.add-button');
-  addBtn.style.display = 'none';
+// Initialize deferredPrompt for use later to show browser install prompt.
+let deferredPrompt;
 
-  window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevent Chrome 67 and earlier from automatically showing the prompt
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent the mini-infobar from appearing on mobile
+  e.preventDefault();
   // Stash the event so it can be triggered later.
   deferredPrompt = e;
-  // Update UI to notify the user they can add to home screen
-  addBtn.style.display = 'block';
-
-  addBtn.addEventListener('click', (e) => {
-    // hide our user interface that shows our A2HS button
-    addBtn.style.display = 'none';
-    // Show the prompt
-    deferredPrompt.prompt();
-    // Wait for the user to respond to the prompt
-    deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the A2HS prompt');
-        } else {
-          console.log('User dismissed the A2HS prompt');
-        }
-        deferredPrompt = null;
-      });
-  });
+  // Update UI notify the user they can install the PWA
+  showInstallPromotion();
+  // Optionally, send analytics event that PWA install promo was shown.
+  console.log(`'beforeinstallprompt' event was fired.`);
 });
 </script>
 <script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>
