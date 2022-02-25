@@ -95,7 +95,7 @@
 <div class="cards" style="margin: .6rem 0 4rem 0;">
   <% if (sortedTimelineArticles.length >= 1) { %>
   <% sortedTimelineArticles.forEach(function(timelineArticle){ %>
-          <a href="/articles/<%= timelineArticle.slug %> " style="margin-bottom: 1rem; background-color: #1D2226; border: none; border-bottom: 1px solid gray; padding-bottom: 1rem;" class="flex flex-col bg-white border shadow-md md:flex-row md:max-w-sm hover:bg-gray-100 dark:hover:bg-gray-800">
+          <a href="/articles/<%= timelineArticle.slug %> " style="margin-bottom: 1rem; background-color: #1D2226; border: none; border-bottom: 1px solid gray; padding-bottom: .5rem;" class="flex flex-col bg-white border shadow-md md:flex-row md:max-w-sm hover:bg-gray-100 dark:hover:bg-gray-800">
           <!-- <img class="object-cover w-full h-96 rounded-t-lg md:h-48 md:w-48 md:rounded-none md:rounded-l-sm" src="https://flowbite.com/docs/images/blog/image-4.jpg" alt=""> -->
           <div class="author dark:text-white" style="display: flex; align-items: center; text-align: left; padding: .5rem 0 .5rem .5rem;">
             <img src="<%= timelineArticle.user.image %>" alt="" style="width: 35px; height: 35px; border-radius: 50%; margin-right: .5rem;">
@@ -113,7 +113,7 @@
             <img src="https://images.pexels.com/photos/325153/pexels-photo-325153.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
           </div> -->
           <div class="post-details">
-            <ul class="dark:text-white" style="display: flex; width: 80%; justify-content: space-between; margin: .5rem auto; font-size: .8rem;">
+            <ul class="dark:text-white" style="display: flex; width: 80%; justify-content: space-between; margin: .2rem auto; font-size: .8rem;">
                 <li>
                   <% if (user) { %>
                     
