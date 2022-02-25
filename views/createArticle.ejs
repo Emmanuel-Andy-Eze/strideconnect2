@@ -26,17 +26,17 @@
     </script>
 </head>
 <body class="dark:bg-gray-900">
-  <nav class="bg-white border-gray-400 px-2 sm:px-4 py-2.5 dark:bg-gray-800">
+  <nav class="bg-white border-gray-400 px-2 sm:px-4 py-1.5" style="background-color: #1D2226; border-bottom: 1px solid gray;">
     <div class="container flex flex-wrap justify-between items-center mx-auto">
     <a href="/articles" class="flex">
-      <img src="/images/logo.png" style="width: 3rem; margin-right: .5rem;" alt="">
-        <span class="self-center text-lg font-semibold whitespace-nowrap dark:text-white">Stride Connect</span>
+      <img src="/images/logo.png" style="width: 2rem; margin-right: .5rem;" alt="">
+      <span class="self-center text-lg font-semibold whitespace-nowrap dark:text-white">Stride Connect</span>
     </a>
     <% if (user) { %>
     <div class="flex items-center md:order-2">
         <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" type="button" data-dropdown-toggle="dropdown">
           <span class="sr-only">Open user menu</span>
-          <img class="w-8 h-8 rounded-full" src="<%= user.image %> " alt="">
+          <img class="w-7 h-7 rounded-full" src="<%= user.image %> " alt="">
         </button>
         <!-- Dropdown menu -->
         <div class="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown">
@@ -46,7 +46,7 @@
           </div>
           <ul class="py-1" aria-labelledby="dropdown">
           <li>
-            <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+            <a href="/users/<%= user._id %>" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
           </li>
           <li>
             <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
