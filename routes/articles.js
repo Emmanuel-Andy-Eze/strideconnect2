@@ -4,6 +4,7 @@ const User = require('../models/User')
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 const { htmlToText } = require('html-to-text');
 var { Remarkable } = require('remarkable');
+const Comment = require("../models/Comment")
 
 var md = new Remarkable({
     html: true, // Enable HTML tags in source
@@ -89,18 +90,42 @@ router.get('/:slug', async (req, res) => {
     try {
         const article = await Article.findOne({ slug: req.params.slug }).populate('user').lean()
         const articleBody = md.render(`${article.body}`)
+        const comments = await Comment.find({ article: article._id }).populate('user').lean()
 
         res.render('singleArticle', {
             article,
             articleBody: htmlToText(articleBody),
             user: req.user,
+            url: `https://strideconnect.herokuapp.com/articles/${article.slug}`,
             title: `${article.title} | Stride Connect`,
+            comments
         })
+
+        console.log(comments)
+        // res.status(200).json(article)
 
       } catch (err) {
         console.error(err)
         res.render('error/404')
       }
+})
+
+router.post('/:id/comment', async (req, res) => {
+    // find out which post you are commenting
+    const id = req.params.id;
+    // get the comment text and record post id
+    const comment = new Comment(req.body);
+    // save comment
+    await comment.save();
+    // get this particular post
+    const articleRelated = await Article.findById(id);
+    // push the comment into the post.comments array
+    articleRelated.comments.push(comment);
+    // save and redirect...
+    await articleRelated.save(function (err) {
+        if (err) { console.log(err) }
+        res.redirect(`/articles/${articleRelated.slug}`)
+    })
 })
 
 module.exports = router
