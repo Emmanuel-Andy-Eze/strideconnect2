@@ -1,39 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="manifest" href="/js/pwa.webmanifest">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="stylesheet" href="/style.css">
-    <title>Login | Stride Connect</title>
-    
+  <link rel="manifest" href="/js/pwa.webmanifest">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://unpkg.com/flowbite@1.3.4/dist/flowbite.min.css" />
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/headers.css">
+  <title>Login | Stride Connect </title>
+  <link rel="manifest" href="/js/pwa.webmanifest">
+  <script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+  </script>
 </head>
-<body>
-    <div class="container login-container">
-        <div class="card">
-            <div class="card-content">
-                <div class="card-logo" style="margin: 0 auto; width: 100%; display: flex; align-items: center;">
-                    <img src="/images/logo.png" alt="">
-                    <h4>Stride Connect</h4>
-                </div>
-                <div class="section">
-                    <p class="lead">It's easy and free to find your audience amongst millions and have a personal touch with them.</p>
-                </div>
-                <div class="divider"></div>
-                <div class="section">
-                    <a href="/auth/google" class="btn blue darken-4">
-                        <i class="fab fa-google left"></i> Log in with Google
-                    </a> <br><br>
-                    <a href="/articles" class="btn blue darken-4">
-                       View as a Guest
-                    </a>
-                </div>
-            </div>
+<body style="background-color: #1F2937; padding: 1rem;">
+    
+<div style="padding: 1rem; width: 100%; margin: 10rem auto;" class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div class="flex justify-end px-4 pt-4">
+        <div id="dropdown" class="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+            <ul class="py-1" aria-labelledby="dropdownButton">
+            <li>
+            <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Edit</a>
+            </li>
+            <li>
+            <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Export Data</a>
+            </li>
+            <li>
+            <a href="#" class="block py-2 px-4 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
+            </li>
+            </ul>
         </div>
     </div>
-    
+    <div class="flex flex-col items-center pb-10">
+        <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="/images/logo.png" alt="Stride logo">
+        <h3 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Stride Connect</h3>
+        <span class="text-sm text-gray-500 dark:text-gray-400" style="text-align: center;">It's easy and free to find your audience amongst millions and have a personal touch with them.</span>
+        <div class="flex mt-4 space-x-3 lg:mt-6">
+            <a href="/auth/google" class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fab fa-google left" style="margin-right: .5rem;"></i> Log in with Google</a>
+            <a href="/articles" class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800">View as a Guest</a>
+        </div>
+    </div>
+</div>
+
 <%- include('partials/footer') %>
