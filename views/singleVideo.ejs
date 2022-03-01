@@ -88,7 +88,10 @@
 <div style="padding-bottom: 0; padding-top: 4rem; position: fixed; z-index: 500;">
     <div class="shadow-md dark:bg-gray-800 dark:border-gray-700" style="color: aliceblue; width: 100%; margin: 0 auto; background-color: #1D2226; z-index: 1000;">
             <!-- <img class="rounded-t-lg" src="/images/background.jpg" alt=""> -->
-            
+            <video class="rounded-t-lg" controls autoplay>
+                <source src="<%= video.video %> " type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         <hr>
             <div class="author" style="display: flex; align-items: center; text-align: left; padding: .5rem 0 0 .5rem;">
                 <img src="<%= video.user.image %> " alt="" style="width: 35px; height: 35px; border-radius: 50%; margin-right: .5rem;">
