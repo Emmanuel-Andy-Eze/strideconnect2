@@ -23,7 +23,7 @@
 <body class="" style="background-color: #1D2226;">
   <nav class="bg-white border-gray-400 px-2 sm:px-4 py-1.5" style="background-color: #1D2226; border-bottom: 1px solid gray; position: fixed; width: 100%;">
     <div class="container flex flex-wrap justify-between items-center mx-auto">
-    <a href="/articles" class="flex">
+    <a href="/videos" class="flex">
       <img src="/images/logo.png" style="width: 2rem; margin-right: .5rem;" alt="">
       <span class="self-center text-lg font-semibold whitespace-nowrap dark:text-white">Stride Connect</span>
     </a>
@@ -47,7 +47,7 @@
             <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
           </li>
           <li>
-            <a href="/articles/new" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Create</a>
+            <a href="/articles/new" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Creator Mode</a>
           </li> 
           <li>
             <a href="/auth/logout" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
@@ -127,7 +127,7 @@
           <% if (user) { %>
             <form action="/videos/<%= video._id %>/like?_method=PUT" method="post">
               <input type="text" name="userId" value="<%= user.id %>" hidden>
-              <button type="submit" class="py-2 px-3 text-xs block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white" aria-current="page" style="background-color: #374151;"><i class="<%- (article.likes.includes(user.id)) ? 'fas' : 'far' %> fa-thumbs-up"></i> <%= article.likes.length %></button>
+              <button type="submit" class="py-2 px-3 text-xs block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white" aria-current="page" style="background-color: #374151;"><i class="<%- (video.likes.includes(user.id)) ? 'fas' : 'far' %> fa-thumbs-up"></i> <%= video.likes.length %></button>
             </form>
           <%} else { %>
             <span class="py-2 px-3 text-xs block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white" aria-current="page" style="background-color: #374151;"><i class="far fa-thumbs-up"></i> 10</span>
@@ -190,12 +190,12 @@
         </ul>
 
         <% if (user) { %>
-            <form method="post" action="/articles/<%= article._id %>/comment">
+            <form method="post" action="/articles/<%= video._id %>/comment">
               <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"></label>
               <textarea name="text" id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
               <br>
-              <input type="text" name="article" value="<%= article._id %>" hidden>
-              <input type="text" name="user" value="<%= user.id %>" hidden>
+              <input type="text" name="article" value="<%= video._id %>" hidden>
+              <input type="text" name="user" value="<%= video.id %>" hidden>
               <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Publish comment</button>
             </form>
           <%} else { %>

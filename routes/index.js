@@ -43,4 +43,12 @@ router.get('/articles', async (req, res) => {
         return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
     };
 
+
+router.get('/creator', ensureAuth, (req, res) => {
+        res.status(200).render('creator', {
+            user: req.user,
+            title: `Creator Mode | Stride Connect`,
+        });
+})
+
 module.exports = router

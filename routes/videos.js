@@ -61,7 +61,7 @@ router.get('/', async (req, res) => {
                 res.render("videos", {
                     user: req.user,
                     sortedTimelineVideos,
-                    title: 'Articles | Stride Connect'
+                    title: 'Videos | Stride Connect'
                 })
             } catch (err) {
                 console.error(err)
@@ -132,7 +132,7 @@ router.post('/create', upload, async (req, res) => {
         }); 
     
           await newVideo.save()
-          res.status(200).json(newVideo)
+          res.redirect('/videos')
         })
       }
     );
