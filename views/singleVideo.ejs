@@ -85,47 +85,35 @@
     
   
 <!-- Video Card -->
-<div style="padding-bottom: 0; padding-top: 4rem; position: fixed; z-index: 1000;">
+<div style="padding-bottom: 0; padding-top: 4rem; position: fixed; z-index: 500;">
     <div class="shadow-md dark:bg-gray-800 dark:border-gray-700" style="color: aliceblue; width: 100%; margin: 0 auto; background-color: #1D2226; z-index: 1000;">
             <!-- <img class="rounded-t-lg" src="/images/background.jpg" alt=""> -->
             <video class="rounded-t-lg" controls>
-                <source src="/videos/testing.mp4" type="video/mp4">
+                <source src="<%= video.video %> " type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         <hr>
             <div class="author" style="display: flex; align-items: center; text-align: left; padding: .5rem 0 0 .5rem;">
-                <img src="https://lh3.googleusercontent.com/a-/AOh14Ggr7o-TtNlUCg11BoiWM7QJ1bC8ktaENhDFJyX5HQ=s96-c" alt="" style="width: 35px; height: 35px; border-radius: 50%; margin-right: .5rem;">
+                <img src="<%= video.user.image %> " alt="" style="width: 35px; height: 35px; border-radius: 50%; margin-right: .5rem;">
                 <div class="time-name" style="display: flex; flex-direction: column;">
-                <span style="font-size: .7rem;">Emmanuel Eze </span>
-                <span style="font-size: .6rem;">Just Now</span>
+                <span style="font-size: .7rem;"><%= video.user.displayName %>  </span>
+                <span style="font-size: .6rem;"><%= video.createdAt.toLocaleDateString() %> </span>
                 </div>
             </div>
             <div style="padding-left: .8rem; background-color: #1D2226; z-index: 1000;">
                 <a href="#">
-                <h5 class="mb-2 text-lg font-bold tracking-tight">Noteworthy technology acquisitions 2021</h5>
+                <h5 class="text-lg font-bold tracking-tight"><%= video.title %> </h5>
+                <span style="font-size: .7rem;"><%= video.category %> </span>
                 </a> 
             </div>
         <hr>
     </div>
 </div>
 
-<div style="width: 100%; background-color: #1D2226; padding-top: 26.5rem; padding-bottom: 5rem; padding-left: .8rem; padding-right: .8rem;">
+<div style="width: 100%; background-color: #1D2226; padding-top: 27rem; padding-bottom: 5rem; padding-left: .8rem; padding-right: .8rem;">
     <h1 style="font-size: 1.2rem; font-weight: 700;">Description</h1>
     <span style="font-size: .8rem;">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, eum voluptatibus nisi 
-        officiis quas aut sapiente blanditiis nam autem omnis corporis illo consectetur. 
-        Repudiandae, eius soluta! Quo quod iste, debitis praesentium aliquid, laboriosam saepe ducimus ab, 
-        sunt illum obcaecati. Dignissimos quae cupiditate rem, hic minima quos qui, 
-        dolorem unde officia, molestiae consequatur labore cum eos quo iusto velit totam dolores?
-        <br><br>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi at animi sed eius 
-        dolorum iure inventore et dolore praesentium quos, iusto nulla quae. Iste sunt deserunt 
-        iusto obcaecati consectetur, vero itaque vel amet aut earum vitae dolore expedita maxime! 
-        Suscipit, laboriosam, voluptates, quam voluptatem eligendi maxime cum dolore quaerat animi 
-        omnis sapiente ex. Consequuntur modi quae iure, odio tempora corporis autem possimus illum 
-        repellat quos, nesciunt culpa ullam nostrum ipsa enim vel iusto voluptatibus nemo rerum, officiis 
-        corrupti veniam hic. Voluptatem, quae totam culpa saepe itaque labore 
-        sint perspiciatis ut consequuntur nulla doloribus reiciendis cumque laboriosam ipsum voluptate expedita est?
+        <%= video.body %> 
     </span>
 </div>
 
@@ -137,7 +125,7 @@
       <ul class="" style="display: flex; justify-content: space-between; width: 90%; margin: 0 auto;">
         <li>
           <% if (user) { %>
-            <form action="/articles/<%= article._id %>/like?_method=PUT" method="post">
+            <form action="/videos/<%= video._id %>/like?_method=PUT" method="post">
               <input type="text" name="userId" value="<%= user.id %>" hidden>
               <button type="submit" class="py-2 px-3 text-xs block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white" aria-current="page" style="background-color: #374151;"><i class="<%- (article.likes.includes(user.id)) ? 'fas' : 'far' %> fa-thumbs-up"></i> <%= article.likes.length %></button>
             </form>
@@ -149,7 +137,7 @@
         </li>
         <li>
           <button class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-small rounded-lg text-sm px-5 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" style="background-color: #374151;" type="button" data-modal-toggle="authentication-modal">
-            <i class="far fa-comment-alt"></i> 5
+            <i class="far fa-comment-alt"></i>
           </button>
           <!-- <a href="#" class="py-2 px-3 text-xs block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white" aria-current="page" data-modal-toggle="authentication-modal" style="background-color: #374151;"> </a> -->
         </li>
@@ -198,58 +186,9 @@
                     </div>
                     
                 </div>
-            </li>
-            <li>
-                <div class="flex items-center space-x-4">
-                    <div>
-                        
-                    </div>
-                    <div>
-                        <p class="text-sm font-small" style="display: flex; align-items: center;">
-                            <img style="margin-right: .5rem;" class="w-8 h-8 rounded-full" src="https://lh3.googleusercontent.com/a-/AOh14Ggr7o-TtNlUCg11BoiWM7QJ1bC8ktaENhDFJyX5HQ=s96-c" alt="user image"> Emmanuel Eze
-                        </p>
-                        <p class="text-sm" style="color: aliceblue;">
-                            <h5 style="color: aliceblue; font-size: .7rem;">Lovely video. Please can you talk slower in the next video and i love your presentation. </h5>
-                        </p>
-                    </div>
-                    
-                </div>
-            </li>
-            <li>
-                <div class="flex items-center space-x-4">
-                    <div>
-                        
-                    </div>
-                    <div>
-                        <p class="text-sm font-small" style="display: flex; align-items: center;">
-                            <img style="margin-right: .5rem;" class="w-8 h-8 rounded-full" src="https://lh3.googleusercontent.com/a-/AOh14Ggr7o-TtNlUCg11BoiWM7QJ1bC8ktaENhDFJyX5HQ=s96-c" alt="user image"> Emmanuel Eze
-                        </p>
-                        <p class="text-sm" style="color: aliceblue;">
-                            <h5 style="color: aliceblue; font-size: .7rem;">Lovely video. Please can you talk slower in the next video and i love your presentation. </h5>
-                        </p>
-                    </div>
-                    
-                </div>
-            </li>
-            <li>
-                <div class="flex items-center space-x-4">
-                    <div>
-                        
-                    </div>
-                    <div>
-                        <p class="text-sm font-small" style="display: flex; align-items: center;">
-                            <img style="margin-right: .5rem;" class="w-8 h-8 rounded-full" src="https://lh3.googleusercontent.com/a-/AOh14Ggr7o-TtNlUCg11BoiWM7QJ1bC8ktaENhDFJyX5HQ=s96-c" alt="user image"> Emmanuel Eze
-                        </p>
-                        <p class="text-sm" style="color: aliceblue;">
-                            <h5 style="color: aliceblue; font-size: .7rem;">Lovely video. Please can you talk slower in the next video and i love your presentation. </h5>
-                        </p>
-                    </div>
-                    
-                </div>
-            </li>
-                  
-               
+            </li> 
         </ul>
+
         <% if (user) { %>
             <form method="post" action="/articles/<%= article._id %>/comment">
               <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"></label>
