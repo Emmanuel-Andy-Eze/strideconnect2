@@ -107,7 +107,7 @@ router.post('/create', upload, async (req, res) => {
     const { path } = req.file; // file becomes available in req at this point
 
     const fName = req.file.originalname.split(".")[0];
-    cloudinary.uploader.upload(
+    cloudinary.uploader.upload_large(
       path,
       {
         resource_type: "raw",
