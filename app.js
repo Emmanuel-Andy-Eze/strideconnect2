@@ -14,6 +14,7 @@ const authRoute = require('./routes/auth')
 const userRoute = require('./routes/users')
 const articleRoute = require('./routes/articles')
 const videoRoute = require('./routes/videos')
+const podcastRoute = require('./routes/podcasts')
 
 //Load Config
 dotenv.config({ path: './config/config.env' })
@@ -57,6 +58,7 @@ app.use('/auth', authRoute)
 app.use('/users', userRoute)
 app.use('/articles', articleRoute)
 app.use('/videos', videoRoute)
+app.use('/podcasts', podcastRoute)
 
 // app.get('/', (req, res) => {
 //     res.send('Hello World')
