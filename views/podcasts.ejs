@@ -90,11 +90,10 @@
   <% sortedTimelinePodcasts.forEach(function(timelinePodcast){ %>
     <div class="shadow-md d" style="color: aliceblue; width: 99%; margin: 2rem auto; padding-bottom: 1rem; border-bottom: .5px solid aliceblue;">
         <a href="/podcasts/<%= timelinePodcast._id %>">
-            <audio controls>
+            <audio controls style="width: 100%; background-color: #1D2226;">
                 <source src="<%= timelinePodcast.audio %> " type="audio/mpeg">
                 Your browser does not support the Audio tag.
             </audio>
-        </a>
             <div class="author" style="display: flex; align-items: center; text-align: left; padding: .5rem 0 0 .5rem;">
                 <img src="<%= timelinePodcast.user.image %> " alt="" style="width: 35px; height: 35px; border-radius: 50%; margin-right: .5rem;">
                 <div class="time-name" style="display: flex; flex-direction: column;">
@@ -103,6 +102,8 @@
                   
                 </div>
             </div>
+        </a>
+            
         <div style="padding-left: .8rem;">
             <a href="#">
             
@@ -127,7 +128,7 @@
           <a href="/articles" style="font-size: 1.3rem;" class="block py-1 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"><i class="fas fa-book-open"></i></a>
         </li>
         <li>
-          <a href="/videos" class="block py-1 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"><i class="fas fa-desktop"></i></a>
+          <a href="/videos" style="font-size: 1.3rem;" class="block py-1 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"><i class="fas fa-desktop"></i></a>
         </li>
         <li>
           <a href="#" style="font-size: 1.3rem;" class="block py-1 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"><i class="fab fa-searchengin"></i></a>

@@ -85,10 +85,10 @@
     
   
 <!-- Video Card -->
-<div style="padding-bottom: 0; padding-top: 4rem; position: fixed; z-index: 500;">
+<div style="padding-bottom: 0; padding-top: 4rem;">
     <div class="shadow-md dark:bg-gray-800 dark:border-gray-700" style="color: aliceblue; width: 100%; margin: 0 auto; background-color: #1D2226; z-index: 1000;">
             <!-- <img class="rounded-t-lg" src="/images/background.jpg" alt=""> -->
-            <audio class="rounded" controls style="">
+            <audio class="rounded" controls style="width: 100%; margin-bottom: 1.5rem;">
                 <source src="<%= audio.audio %> " type="audio/mpeg">
                 Your browser does not support the audio tag.
             </audio>
@@ -110,7 +110,7 @@
     </div>
 </div>
 
-<div style="width: 100%; background-color: #1D2226; padding-top: 13rem; padding-bottom: 5rem; padding-left: .8rem; padding-right: .8rem;">
+<div style="width: 100%; background-color: #1D2226; padding-top: 1rem; padding-bottom: 3rem; padding-left: .8rem; padding-right: .8rem;">
     <h1 style="font-size: 1.2rem; font-weight: 700;">Description</h1>
     <span style="font-size: .7rem;">
         <pre style="font-size: .8rem; padding-top: 1rem;"><%= audio.body %></pre>
@@ -127,7 +127,7 @@
           <% if (user) { %>
             <form action="/videos/<%= audio._id %>/like?_method=PUT" method="post">
               <input type="text" name="userId" value="<%= user.id %>" hidden>
-              <button type="submit" class="py-2 px-3 text-xs block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white" aria-current="page" style="background-color: #374151;"><i class="<%- (video.likes.includes(user.id)) ? 'fas' : 'far' %> fa-thumbs-up"></i> <%= video.likes.length %></button>
+              <button type="submit" class="py-2 px-3 text-xs block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white" aria-current="page" style="background-color: #374151;"><i class="<%- (audio.likes.includes(user.id)) ? 'fas' : 'far' %> fa-thumbs-up"></i> <%= audio.likes.length %></button>
             </form>
           <%} else { %>
             <span class="py-2 px-3 text-xs block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white" aria-current="page" style="background-color: #374151;"><i class="far fa-thumbs-up"></i> 10</span>
