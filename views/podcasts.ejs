@@ -88,11 +88,11 @@
 <div style="padding-bottom: 3.5rem; background-color: #1D2226;">
   <% if (sortedTimelinePodcasts.length >= 1) { %>
   <% sortedTimelinePodcasts.forEach(function(timelinePodcast){ %>
-    
-    <div style="display: flex; align-items: center; padding: .6rem; border-bottom: .5px solid aliceblue;">
+    <h5 class="text-md font-bold tracking-tight" style="padding-top: .5rem; padding-left: .6rem;"><%= timelinePodcast.title %></h5>
+    <div style="display: flex; align-items: center; padding: 0 .6rem .6rem .6rem; border-bottom: .5px solid aliceblue;">
         <img class="object-cover rounded-t-lg" style="height: 10rem; width: 10rem;" src="https://media.istockphoto.com/photos/young-people-recording-podcast-in-studio-picture-id1355368763?k=20&m=1355368763&s=612x612&w=0&h=7giGgcMJjFiwn4J9-nzOKN4VXSHts482hcVjBUxm9j0=" alt="">
         <div class="flex flex-col justify-between p-4 leading-normal">
-            <h5 class="text-2xl font-bold tracking-tight"><%= timelinePodcast.title %></h5>
+            
             <span style="font-size: .8rem; display: flex; align-items: center;"><img src="<%= timelinePodcast.user.image %> " alt="" style="width: 25px; height: 25px; border-radius: 50%; margin-right: .5rem; margin-bottom: .3rem;"> <%= timelinePodcast.user.displayName %></span>
             <span style="font-size: .5rem;">20 views - <%= timelinePodcast.createdAt.toLocaleDateString() %></span>
             <p class="mb-3" style="font-size: .8rem; background-color: #374151; border-radius: 10px; padding: .5rem;"><%= timelinePodcast.category %></p>
