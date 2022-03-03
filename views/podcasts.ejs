@@ -88,27 +88,18 @@
 <div style="padding-bottom: 3.5rem; background-color: #1D2226;">
   <% if (sortedTimelinePodcasts.length >= 1) { %>
   <% sortedTimelinePodcasts.forEach(function(timelinePodcast){ %>
-    <div class="shadow-md d" style="color: aliceblue; width: 99%; margin: 2rem auto; padding-bottom: 1rem; border-bottom: .5px solid aliceblue;">
-        <a href="/podcasts/<%= timelinePodcast._id %>">
-            <audio controls style="width: 100%; background-color: #1D2226;">
-                <source src="<%= timelinePodcast.audio %> " type="audio/mpeg">
-                Your browser does not support the Audio tag.
-            </audio>
-            <div class="author" style="display: flex; align-items: center; text-align: left; padding: .5rem 0 0 .5rem;">
-                <img src="<%= timelinePodcast.user.image %> " alt="" style="width: 35px; height: 35px; border-radius: 50%; margin-right: .5rem;">
-                <div class="time-name" style="display: flex; flex-direction: column;">
-                  <span class="text-sm font-bold tracking-tight"><%= timelinePodcast.title %></span>
-                  <span style="font-size: .6rem;"><%= timelinePodcast.user.displayName %> - 20 views - <%= timelinePodcast.createdAt.toLocaleDateString() %>  </span>
-                  
-                </div>
+    
+    <div style="display: flex; align-items: center; padding: .6rem; border-bottom: .5px solid aliceblue;">
+        <img class="object-cover rounded-t-lg" style="height: 10rem; width: 10rem;" src="https://media.istockphoto.com/photos/young-people-recording-podcast-in-studio-picture-id1355368763?k=20&m=1355368763&s=612x612&w=0&h=7giGgcMJjFiwn4J9-nzOKN4VXSHts482hcVjBUxm9j0=" alt="">
+        <div class="flex flex-col justify-between p-4 leading-normal">
+            <h5 class="text-2xl font-bold tracking-tight"><%= timelinePodcast.title %></h5>
+            <span style="font-size: .8rem; display: flex; align-items: center;"><img src="<%= timelinePodcast.user.image %> " alt="" style="width: 25px; height: 25px; border-radius: 50%; margin-right: .5rem; margin-bottom: .3rem;"> <%= timelinePodcast.user.displayName %></span>
+            <span style="font-size: .5rem;">20 views - <%= timelinePodcast.createdAt.toLocaleDateString() %></span>
+            <p class="mb-3" style="font-size: .8rem; background-color: #374151; border-radius: 10px; padding: .5rem;"><%= timelinePodcast.category %></p>
+            <a href="/podcasts/<%= timelinePodcast._id %>">
+                <button type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "><i class="fas fa-play-circle"></i> Listen</button>
+            </a>
             </div>
-        </a>
-            
-        <div style="padding-left: .8rem;">
-            <a href="#">
-            
-            </a> 
-        </div>
     </div>
     <% })%>
     <%} else { %>
@@ -116,6 +107,7 @@
       
     <% } %>
 </div>
+
 
 
 
